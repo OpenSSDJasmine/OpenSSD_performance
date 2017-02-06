@@ -355,9 +355,10 @@ static void tc_write_rand_flash(const UINT32 start_lsn, const UINT32 io_num, con
 			}
 			//uart_printf("test write \n");
 			/*             ptimer_start(); */
-			ftl_write(lba, num_sectors);
-			ftl_flush();
+			ftl_write_flash(lba, num_sectors);
+			//ftl_flush();
 
+			
 			//uart_printf("write fin, test read\n");
 			/*             ptimer_stop_and_uart_print(); */
 			rd_buf_addr = RD_BUF_PTR(g_ftl_read_buf_id) + ((lba % SECTORS_PER_PAGE) * BYTES_PER_SECTOR);
